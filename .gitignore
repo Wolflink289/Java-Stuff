@@ -1,0 +1,10 @@
+# Eclipse
+.project
+.classpath
+
+# Java
+bin/*
+src/Test.java
+
+# Misc
+.DS_Store
