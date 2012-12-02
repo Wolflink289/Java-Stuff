@@ -1,4 +1,4 @@
-package wolf.swing;
+package com.wolflink289.swing;
 
 import java.awt.Toolkit;
 import javax.swing.text.AttributeSet;
