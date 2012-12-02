@@ -175,6 +175,9 @@ public class Local {
 		try {
 			sync.tryLock(Long.MAX_VALUE, TimeUnit.DAYS);
 		} catch (InterruptedException e) {}
+
+		// Load
+		if (lcal_string == null) load();
 		
 		// Put
 		lcal_string.put(key, val);
@@ -191,6 +194,9 @@ public class Local {
 		try {
 			sync.tryLock(Long.MAX_VALUE, TimeUnit.DAYS);
 		} catch (InterruptedException e) {}
+
+		// Load
+		if (lcal_string == null) load();
 		
 		// Check
 		if (lcal_string.containsKey(key)) return;
