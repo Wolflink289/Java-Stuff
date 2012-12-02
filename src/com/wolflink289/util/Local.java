@@ -24,6 +24,7 @@ public class Local {
 	static private final String default_locale = "enUS";
 	static private final String default_path = "file://%/locale/";
 	static private final String default_strings = "strings.txt";
+	static private final String ENCODING = "UTF8";
 	
 	// Variables
 	static private URL load_path = null;
@@ -175,7 +176,7 @@ public class Local {
 		try {
 			sync.tryLock(Long.MAX_VALUE, TimeUnit.DAYS);
 		} catch (InterruptedException e) {}
-
+		
 		// Load
 		if (lcal_string == null) load();
 		
@@ -194,7 +195,7 @@ public class Local {
 		try {
 			sync.tryLock(Long.MAX_VALUE, TimeUnit.DAYS);
 		} catch (InterruptedException e) {}
-
+		
 		// Load
 		if (lcal_string == null) load();
 		
@@ -298,6 +299,10 @@ public class Local {
 					BufferedReader stringr = new BufferedReader(new InputStreamReader(strings));
 					String line;
 					while ((line = stringr.readLine()) != null) {
+						// Encoding
+						if (ENCODING != null) line = new String(line.getBytes(), ENCODING);
+						
+						// Trim
 						line = line.trim();
 						
 						// Comments/Ignore
